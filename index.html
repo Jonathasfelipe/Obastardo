@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exploração filosófica do 'bastardo' como categoria que expõe o monopólio do sentido e questiona todas as mediações do poder">
+    <meta name="keywords" content="filosofia, bastardo, foucault, nietzsche, quântica, hibridismo, pensamento crítico, tradução, experiência, poder">
+    <meta name="author" content="Bastardo Filosófico">
+    <meta property="og:title" content="Bastardo Filosófico: Fora das Traduções, Dentro da Experiência">
+    <meta property="og:description" content="Uma exploração filosófica do 'bastardo' como categoria que expõe o monopólio do sentido">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#1a1a2e">
+    
+    <title>Bastardo Filosófico: Fora das Traduções, Dentro da Experiência</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+    /* ===== VARIÁVEIS & RESET OTIMIZADO ===== */
+    :root {
+        /* Cores principais */
+        --primary: #0f0f1e;
+        --secondary: #1a1a2e;
+        --tertiary: #16213e;
+        --accent: #e94560;
+        --accent-hover: #d1345e;
+        --light: #f1f1f1;
+        --dark: #0a0a14;
+        --quantum: #00b4d8;
+        --quantum-hover: #0093b8;
+        --position: #fca311;
+        --position-hover: #e59400;
+        --science: #8a2be2;
+        --philosophy: #ff6b6b;
+        --math: #00d4aa;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        /* Sombras */
+        --shadow-sm: 0 2px 4px rgba(0,0,0,0.2);
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+        --shadow-lg: 0 10px 30px rgba(0,0,0,0.4);
+        --shadow-xl: 0 20px 40px rgba(0,0,0,0.5);
+        
+        /* Espaçamentos */
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 2rem;
+        --space-lg: 3rem;
+        --space-xl: 4rem;
+    }
+
+    :root[data-theme="light"] {
+        --primary: #ffffff;
+        --secondary: #f8f9fa;
+        --tertiary: #e9ecef;
+        --accent: #d1345e;
+        --light: #212529;
+        --dark: #f8f9fa;
+        --quantum: #0093b8;
+        --position: #e59400;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        font-family: 'Raleway', system-ui, -apple-system, sans-serif;
+        line-height: 1.8;
+        color: var(--light);
+        background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(233, 69, 96, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    /* ===== TIPOGRAFIA OTIMIZADA ===== */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: var(--space-sm);
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        background: linear-gradient(135deg, var(--accent) 0%, var(--quantum) 50%, var(--position) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: var(--shadow-md);
+        letter-spacing: -0.5px;
+    }
+
+    h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--accent);
+        position: relative;
+        padding-left: var(--space-sm);
+        margin-top: var(--space-xl);
+    }
+
+    h2::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(to bottom, var(--accent), transparent);
+        border-radius: 2px;
+    }
+
+    .quantum-title {
+        color: var(--quantum);
+    }
+
+    .quantum-title::before {
+        background: linear-gradient(to bottom, var(--quantum), transparent);
+    }
+
+    .position-title {
+        color: var(--position);
+    }
+
+    .position-title::before {
+        background: linear-gradient(to bottom, var(--position), transparent);
+    }
+
+    p {
+        margin-bottom: var(--space-sm);
+        font-size: 1.1rem;
+    }
+
+    /* ===== LAYOUT OTIMIZADO ===== */
+    .container {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 var(--space-md);
+    }
+
+    /* ===== HEADER MELHORADO ===== */
+    header {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-xl) var(--space-md);
+        position: center;
+        overflow: hidden;
+        background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(26, 26, 46, 0.9) 100%);
+    }
+
+    .header-content {
+        max-width: 800px;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .subtitle {
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        color: var(--quantum);
+        margin-bottom: var(--space-md);
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* ===== BOTÕES PREMIUM ===== */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 32px;
+        background: var(--accent);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+        transform: translateX(-100%);
+        transition: transform 0.6s;
+        z-index: -1;
+    }
+
+    .btn:hover {
+        background: var(--accent-hover);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .btn:hover::before {
+        transform: translateX(100%);
+    }
+
+    .btn-quantum {
+        background: var(--quantum);
+    }
+
+    .btn-quantum:hover {
+        background: var(--quantum-hover);
+    }
+
+    .btn-position {
+        background: var(--position);
+    }
+
+    .btn-position:hover {
+        background: var(--position-hover);
+    }
+
+    .btn-group {
+        display: flex;
+        gap: var(--space-sm);
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: var(--space-md);
+    }
+
+    /* ===== NAVEGAÇÃO PREMIUM ===== */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 15, 30, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+        background: rgba(15, 15, 30, 0.98);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem var(--space-md);
+        position: relative;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+        transform: translateY(-2px);
+    }
+
+    .logo-icon {
+        font-size: 1.8rem;
+        color: var(--accent);
+    }
+
+    .logo-text {
+        background: linear-gradient(135deg, #60a5fa, #a78bfa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    /* Mobile Toggle melhorado */
+    .mobile-menu-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .mobile-menu-toggle span {
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background: var(--accent);
+        border-radius: 2px;
+        transition: var(--transition);
+        left: 8px;
+    }
+
+    .mobile-menu-toggle span:nth-child(1) { top: 12px; }
+    .mobile-menu-toggle span:nth-child(2) { top: 19px; }
+    .mobile-menu-toggle span:nth-child(3) { bottom: 12px; }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 19px;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        bottom: 19px;
+    }
+
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        list-style: none;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        border-radius: 8px;
+        transition: var(--transition);
+        font-weight: 500;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(0, 180, 216, 0.2));
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .nav-indicator {
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), var(--quantum));
+        border-radius: 1px;
+        transition: width 0.3s ease;
+    }
+
+    .nav-item.active .nav-indicator {
+        width: 80%;
+    }
+
+    /* ===== SEÇÕES DE CONTEÚDO ===== */
+    main {
+        padding: var(--space-xl) 0;
+    }
+
+    section {
+        margin-bottom: var(--space-xl);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .intro-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin-bottom: var(--space-md);
+        background-color: rgba(255,255,255,0.05);
+        padding: var(--space-md);
+        border-radius: 12px;
+        border-left: 4px solid var(--accent);
+        backdrop-filter: blur(5px);
+    }
+
+    /* ===== CATEGORIAS ===== */
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: var(--space-md);
+        margin-top: var(--space-md);
+    }
+
+    .category-card {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: var(--transition);
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+
+    .category-card:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        border-color: var(--accent);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .category-header {
+        background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+        padding: var(--space-md);
+        border-bottom: 2px solid var(--accent);
+    }
+
+    .category-body {
+        padding: var(--space-md);
+    }
+
+    .term-list {
+        list-style-type: none;
+    }
+
+    .term-list li {
+        padding: 12px 0;
+        border-bottom: 1px dashed rgba(255,255,255,0.1);
+        position: relative;
+        padding-left: 24px;
+    }
+
+    .term-list li:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    .term-list li:last-child {
+        border-bottom: none;
+    }
+
+    /* ===== SÍNTESE PREMIUM ===== */
+    .synthesis {
+        background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: var(--space-lg);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+        margin-top: var(--space-lg);
+    }
+
+    .synthesis::before {
+        content: '"';
+        position: absolute;
+        font-size: 20rem;
+        color: rgba(255, 255, 255, 0.03);
+        font-family: 'Playfair Display', serif;
+        top: -60px;
+        left: -30px;
+        line-height: 1;
+    }
+
+    .synthesis h3 {
+        color: var(--quantum);
+        margin-bottom: var(--space-md);
+    }
+
+    /* ===== FILÓSOFOS ===== */
+    .philosopher-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: var(--space-md);
+        margin-top: var(--space-md);
+    }
+
+    .philosopher-card {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        padding: var(--space-md);
+        border-top: 4px solid var(--accent);
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .philosopher-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .philosopher-card.nietzsche {
+        border-top-color: var(--position);
+    }
+
+    .philosopher-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--space-md);
+    }
+
+    .philosopher-icon {
+        font-size: 2rem;
+        margin-right: var(--space-sm);
+        color: var(--accent);
+    }
+
+    .philosopher-card.nietzsche .philosopher-icon {
+        color: var(--position);
+    }
+
+    .analysis-point {
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-md);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .analysis-point:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    /* ===== TABELA DE COMPARAÇÃO ===== */
+    .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: var(--space-md);
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .comparison-table th, .comparison-table td {
+        padding: var(--space-md);
+        text-align: left;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .comparison-table th {
+        background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+        color: var(--accent);
+        font-weight: 600;
+    }
+
+    .comparison-table tr:hover {
+        background-color: rgba(255,255,255,0.03);
+    }
+
+    /* ===== ROTEIRO ===== */
+    .script-section {
+        background: linear-gradient(135deg, rgba(233, 69, 96, 0.1), rgba(0, 0, 0, 0.3));
+        border-left: 4px solid var(--accent);
+        padding: var(--space-md);
+        margin: var(--space-md) 0;
+        border-radius: 0 12px 12px 0;
+        backdrop-filter: blur(10px);
+    }
+
+    .script-line {
+        margin-bottom: var(--space-sm);
+        padding-left: var(--space-sm);
+        position: relative;
+    }
+
+    .script-line:before {
+        content: ">";
+        position: absolute;
+        left: -10px;
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    .script-line.camera {
+        color: var(--quantum);
+        font-style: italic;
+        border-left: 2px solid var(--quantum);
+        padding-left: var(--space-md);
+    }
+
+    .script-line.camera:before {
+        content: "🎥";
+        left: -15px;
+    }
+
+    /* ===== SEÇÃO QUÂNTICA ===== */
+    .quantum-section {
+        background: linear-gradient(135deg, rgba(0, 180, 216, 0.1) 0%, rgba(15, 15, 30, 0.8) 100%);
+        border: 1px solid rgba(0, 180, 216, 0.2);
+        border-radius: 16px;
+        padding: var(--space-lg);
+        margin-top: var(--space-lg);
+        backdrop-filter: blur(10px);
+    }
+
+    .caution-box {
+        background: linear-gradient(135deg, rgba(252, 163, 17, 0.1), rgba(252, 163, 17, 0.05));
+        border: 1px solid rgba(252, 163, 17, 0.3);
+        border-radius: 12px;
+        padding: var(--space-md);
+        margin: var(--space-md) 0;
+    }
+
+    .frequency-visual {
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(90deg, var(--dark) 0%, var(--quantum) 50%, var(--dark) 100%);
+        position: relative;
+        margin: var(--space-md) 0;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 180, 216, 0.3);
+    }
+
+    .frequency-wave {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0,50 Q300,0 600,50 T1200,50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><path d="M0,50 Q300,100 600,50 T1200,50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+        animation: wave 10s linear infinite;
+    }
+
+    /* ===== SEÇÃO POSIÇÃO ===== */
+    .position-section {
+        background: linear-gradient(135deg, rgba(252, 163, 17, 0.1) 0%, rgba(15, 15, 30, 0.8) 100%);
+        border: 1px solid rgba(252, 163, 17, 0.2);
+        border-radius: 16px;
+        padding: var(--space-lg);
+        margin-top: var(--space-lg);
+        backdrop-filter: blur(10px);
+    }
+
+    .position-statement {
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        text-align: center;
+        margin: var(--space-md) 0;
+        padding: var(--space-md);
+        background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+        border-radius: 12px;
+        border-left: 4px solid var(--position);
+        border-right: 4px solid var(--position);
+        font-style: italic;
+    }
+
+    .point-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: var(--accent);
+        color: white;
+        border-radius: 50%;
+        margin-right: var(--space-sm);
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .point-number.quantum {
+        background: var(--quantum);
+    }
+
+    .point-number.position {
+        background: var(--position);
+    }
+
+    /* ===== ELEMENTOS EDUCACIONAIS ===== */
+    .education-section {
+        background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(15, 15, 30, 0.9) 100%);
+        border: 1px solid rgba(138, 43, 226, 0.2);
+        border-radius: 16px;
+        padding: var(--space-lg);
+        margin: var(--space-lg) 0;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+    }
+
+    .education-section:before {
+        content: '🧪';
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        font-size: 15rem;
+        opacity: 0.05;
+        transform: rotate(15deg);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+        background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+        color: white;
+        padding: var(--space-xl) 0 var(--space-md);
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        margin-top: var(--space-xl);
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links {
+        display: flex;
+        list-style: none;
+        margin: var(--space-md) 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-md);
+    }
+
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: var(--transition);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: 8px;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent);
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .copyright {
+        margin-top: var(--space-md);
+        padding-top: var(--space-md);
+        border-top: 1px solid rgba(255,255,255,0.1);
+        width: 100%;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .disclaimer {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: var(--space-sm);
+        max-width: 600px;
+    }
+
+    /* ===== ANIMAÇÕES OTIMIZADAS ===== */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes wave {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .floating {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .pulse {
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ===== LOADING OTIMIZADO ===== */
+    .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .loading.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .loader {
+        width: 60px;
+        height: 60px;
+        border: 4px solid transparent;
+        border-top: 4px solid var(--accent);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        position: relative;
+    }
+
+    .loader::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border: 4px solid transparent;
+        border-bottom: 4px solid var(--quantum);
+        border-radius: 50%;
+        animation: spin 0.5s linear infinite reverse;
+    }
+
+    /* ===== TOAST NOTIFICATIONS ===== */
+    .toast {
+        position: fixed;
+        bottom: var(--space-md);
+        right: var(--space-md);
+        background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+        color: white;
+        padding: var(--space-sm) var(--space-md);
+        border-radius: 12px;
+        border-left: 4px solid var(--accent);
+        box-shadow: var(--shadow-lg);
+        transform: translateX(150%);
+        transition: transform 0.3s ease;
+        z-index: 10000;
+        max-width: 400px;
+        backdrop-filter: blur(10px);
+    }
+
+    .toast.show {
+        transform: translateX(0);
+    }
+
+    /* ===== PROGRESS BAR ===== */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), var(--quantum));
+        z-index: 9999;
+        transition: width 0.1s ease;
+    }
+
+    /* ===== VOLTAR AO TOPO ===== */
+    .back-to-top {
+        position: fixed;
+        bottom: var(--space-md);
+        right: var(--space-md);
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--accent), var(--quantum));
+        border: none;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        transform: translateY(-5px) scale(1.1);
+    }
+
+    /* ===== DARK/LIGHT THEME TOGGLE ===== */
+    .theme-toggle {
+        position: relative;
+        width: 60px;
+        height: 30px;
+        background: var(--secondary);
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .theme-toggle::before {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        background: var(--position);
+        border-radius: 50%;
+        top: 2px;
+        left: 2px;
+        transition: transform 0.3s ease;
+    }
+
+    [data-theme="light"] .theme-toggle::before {
+        transform: translateX(30px);
+        background: var(--quantum);
+    }
+
+    .theme-toggle i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px;
+    }
+
+    .theme-toggle .sun {
+        left: 8px;
+        color: var(--position);
+    }
+
+    .theme-toggle .moon {
+        right: 8px;
+        color: var(--quantum);
+    }
+
+    /* ===== RESPONSIVIDADE PREMIUM ===== */
+    @media (max-width: 1024px) {
+        .container {
+            padding: 0 var(--space-sm);
+        }
+        
+        .categories-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .philosopher-section {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .mobile-menu-toggle {
+            display: block;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 30, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex-direction: column;
+            padding: var(--space-md);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .nav-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .categories-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .btn-group {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        .header-content {
+            padding: var(--space-md);
+        }
+
+        .comparison-table {
+            display: block;
+            overflow-x: auto;
+        }
+
+        .footer-links {
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+    }
+
+    @media (max-width: 480px) {
+        :root {
+            --space-md: 1rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .synthesis, .quantum-section, .position-section, .education-section {
+            padding: var(--space-md);
+        }
+    }
+
+    /* ===== ACESSIBILIDADE ===== */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+
+    /* ===== PERFORMANCE OPTIMIZATIONS ===== */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Reading Progress -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Navegação principal">
+        <div class="container nav-container">
+            <a href="#home" class="logo" aria-label="Bastardo Filosófico - Página inicial">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Bastardo Filosófico</span>
+            </a>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li class="nav-item" role="none">
+                    <a href="#home" class="nav-link active" role="menuitem" aria-current="page">
+                        <i class="fas fa-home"></i> Início
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#conceito" class="nav-link" role="menuitem">
+                        <i class="fas fa-lightbulb"></i> Conceito
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#foucault-nietzsche" class="nav-link" role="menuitem">
+                        <i class="fas fa-brain"></i> Filósofos
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#roteiro" class="nav-link" role="menuitem">
+                        <i class="fas fa-scroll"></i> Roteiro
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#quantico" class="nav-link" role="menuitem">
+                        <i class="fas fa-atom"></i> Quântico
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#posicionamento" class="nav-link" role="menuitem">
+                        <i class="fas fa-tags"></i> Posicionamento
+                    </a>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li class="nav-item" role="none">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                        <i class="fas fa-sun sun"></i>
+                        <i class="fas fa-moon moon"></i>
+                        <span class="sr-only">Alternar tema claro/escuro</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="home">
+        <div class="particles" id="particles"></div>
+        <div class="container">
+            <div class="header-content">
+                <h1>FORA DAS TRADUÇÕES</h1>
+                <p class="subtitle">DENTRO DA EXPERIÊNCIA</p>
+                <p>Uma exploração filosófica do "bastardo" como categoria que expõe o monopólio do sentido e questiona todas as mediações do poder.</p>
+                <p><em>Não sou cristão, não sou de direita, não sou de esquerda, muito menos...</em></p>
+                <div class="btn-group">
+                    <a href="#conceito" class="btn">
+                        <i class="fas fa-search"></i> Explorar Conceito
+                    </a>
+                    <button class="btn btn-quantum" id="startJourney">
+                        <i class="fas fa-play"></i> Iniciar Jornada
+                    </button>
+                    <a href="#posicionamento" class="btn btn-position">
+                        <i class="fas fa-compass"></i> Posicionamento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Conceito Section -->
+        <section id="conceito" class="container">
+            <h2>O "BASTARDO" COMO CATEGORIA FILOSÓFICA</h2>
+            <div class="intro-text">
+                <p>Organização de sinônimos / termos análogos a "bastardo" sob uma visão filosófica, simbólica e conceitual — não no sentido ofensivo literal, mas como categoria de pensamento que expõe estruturas de poder e exclusão.</p>
+            </div>
+            
+            <div class="categories-grid">
+                <!-- Categoria 1 -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Não Pertence à Origem</h3>
+                    </div>
+                    <div class="category-body">
+                        <ul class="term-list">
+                            <li><strong>Híbrido / Mestiço / Anfíbio</strong> – não nasce de uma única matriz ontológica; fusão de naturezas distintas.</li>
+                            <li><strong>Espúrio / Bastardo / Illegítimo</strong> – origem questionável, não sancionada pela linhagem principal.</li>
+                            <li><strong>Apócrifo / Não Canônico / Paralelo</strong> – fora do cânone oficial; conhecimento da margem.</li>
+                            <li><strong>Derivado / Secundário / Epigonal</strong> – não é princípio fundador, mas consequência ou reverberação.</li>
+                            <li><strong>Degenerado / Corrompido / Desvirtuado</strong> – afastamento da forma original; perda de potência (sentido clássico).</li>
+                            <li><strong>Adventício / Acidental / Parasita</strong> – que surge de fora, sem ser inerente; acréscimo externo.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Categoria 2 -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Ruptura da Linhagem Simbólica</h3>
+                    </div>
+                    <div class="category-body">
+                        <ul class="term-list">
+                            <li><strong>Sem genealogia / Árbol sem raízes / A-histórico</strong> – sem filiação conceitual clara; desgarrado do passado.</li>
+                            <li><strong>Órfão metafísico / Desamparado ontológico</strong> – não reconhece pai, fundamento ou pátria espiritual.</li>
+                            <li><strong>Exilado ontológico / Pária do ser / Estrangeiro existencial</strong> – vive à margem da ordem estabelecida do ser.</li>
+                            <li><strong>Desenraizado / Desterritorializado / Nômade</strong> – perdeu o vínculo com a terra-mãe da tradição.</li>
+                            <li><strong>Anômalo / Aberrante / Irregular</strong> – foge da norma estrutural; é o desvio que perturba.</li>
+                            <li><strong>Cisma / Cisão / Fratura</strong> – o ato que rompe a continuidade; o momento da separação.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Categoria 3 -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Transgressão Criadora</h3>
+                    </div>
+                    <div class="category-body">
+                        <ul class="term-list">
+                            <li><strong>Profano / Mundano / Secular</strong> – produtivo fora do sagrado; geração no plano terreno.</li>
+                            <li><strong>Herege / Dissidente / Iconoclasta</strong> – rompe dogmas para gerar novo sentido; destrói ídolos.</li>
+                            <li><strong>Transversal / Diagonal / Intersticial</strong> – cruza campos sem pedir permissão; habita entre disciplinas.</li>
+                            <li><strong>Liminal / Limiar / Fronteiriço</strong> – existe no umbral, na zona ambígua entre categorias definidas.</li>
+                            <li><strong>Mutante / Metamórfico / Transformante</strong> – transformação ativa e contínua da forma; devir incessante.</li>
+                            <li><strong>Promíscuo / Contaminante / Catalisador</strong> – mistura-se indiscriminadamente, gerando novas reações.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Categoria 4 -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Crítica à Pureza</h3>
+                    </div>
+                    <div class="category-body">
+                        <ul class="term-list">
+                            <li><strong>Impuro / Mestiçado / Contaminado</strong> – a mistura como potência vital, não como defeito ou queda.</li>
+                            <li><strong>Sincrético / Amálgama / Colagem</strong> – união criativa de sistemas distintos; fusão que gera novo todo.</li>
+                            <li><strong>Fragmentário / Incompleto / Parcial</strong> – não total, mas revelador em sua parcialidade; verdade no estilhaço.</li>
+                            <li><strong>Inclassificável / Indisciplinável / Anárquico</strong> – resiste à taxonomia; escapa às gavetas do conhecimento.</li>
+                            <li><strong>Caótico / Turbulento / Gerador</strong> – no sentido criativo e fecundo, não destrutivo; ordem em potência.</li>
+                            <li><strong>Heterogêneo / Multifacetado / Policromo</strong> – composto por elementos diversos e irreconciliáveis em sua superfície.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Categoria 5 -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Condição Humana Amplificada</h3>
+                    </div>
+                    <div class="category-body">
+                        <ul class="term-list">
+                            <li><strong>Inacabado / Em Devir / Projeto</strong> – sempre em processo, nunca um produto final; essência como construção.</li>
+                            <li><strong>Errante / Peregrino / Caminhante</strong> – não tem destino fixo; o caminho é a morada.</li>
+                            <li><strong>Contraditório / Dialético / Tenso</strong> – abriga opostos em luta interna; a verdade surge do conflito.</li>
+                            <li><strong>Paradoxal / Aporético / Enigmático</strong> – existe pela tensão de lógica irresolúveis; desafio ao pensamento.</li>
+                            <li><strong>Autogerado / Autopoiético / Self-made</strong> – cria a si mesmo e a própria origem; fundamento sem fundamento.</li>
+                            <li><strong>Precário / Vulnerável / Finito</strong> – consciência da fragilidade e do limite como condição existencial.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Categoria 6 -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Morfologias da Mistura</h3>
+                    </div>
+                    <div class="category-body">
+                        <ul class="term-list">
+                            <li><strong>Quimera / Frankenstein / Centauro</strong> – ser composto de partes heterogêneas; união impossível que existe.</li>
+                            <li><strong>Amálgama / Ligadura / Costura</strong> – técnica de união onde as junções são visíveis; beleza na sutura.</li>
+                            <li><strong>Rizoma / Rede / Teia</strong> – estrutura não-hierárquica e conexa; crescimento lateral e descentrado.</li>
+                            <li><strong>Palimpsesto / Sobreposição / Stratum</strong> – camadas de significados sobrepostos; história inscrita na pele do texto.</li>
+                            <li><strong>Kaleidoscópico / Mosaico / Patchwork</strong> – composição de fragmentos coloridos que formam padrões mutáveis.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Categoria 7 -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Estatuto Epistemológico</h3>
+                    </div>
+                    <div class="category-body">
+                        <ul class="term-list">
+                            <li><strong>Marginal / Periférico / Subalterno</strong> – conhecimento produzido fora dos centros de poder; saber da borda.</li>
+                            <li><strong>Herético / Não Ortodoxo / Alternativo</strong> – pensamento que desafia a doutrina estabelecida; verdade proscrita.</li>
+                            <li><strong>Intuitivo / Tácito / Não-Sistematizado</strong> – saber não formalizado; conhecimento do corpo e da experiência.</li>
+                            <li><strong>Experimental / Tentativo / Conjectural</strong> – caráter provisório e de risco; verdade em fase de teste.</li>
+                            <li><strong>Nomádico / Nômade / Itinerante</strong> – pensamento que não se fixa em um único sistema; razão errante.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Categoria 8 -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Afetos e Tomadas de Posição</h3>
+                    </div>
+                    <div class="category-body">
+                        <ul class="term-list">
+                            <li><strong>Insurgente / Revoltado / Inconformado</strong> – afeto político de quem se levanta contra a ordem.</li>
+                            <li><strong>Nostálgico / Saudoso / Melancólico</strong> – afeto voltado para uma origem perdida ou imaginada.</li>
+                            <li><strong>Utopico / Esperançoso / Prospectivo</strong> – afeto voltado para um futuro por vir; potência do não-ainda.</li>
+                            <li><strong>Irônico / Cético / Descrente</strong> – tomada de distância e questionamento; desconfiança das grandezas narrativas.</li>
+                            <li><strong>Entusiasta / Fervoroso / Crente</strong> – tomada de posição apaixonada na crença do novo ou do alternativo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="synthesis">
+                <h3>SÍNTESE FILOSÓFICA</h3>
+                <p>O "bastardo" não é apenas o que nasce fora da lei — é aquilo que expõe que toda lei é construída. É a categoria que revela a artificialidade das estruturas de poder e questiona os fundamentos sobre os quais a sociedade organiza seus sistemas de exclusão e pertencimento.</p>
+            </div>
+        </section>
+        
+        <!-- Foucault & Nietzsche Section -->
+        <section id="foucault-nietzsche" class="container">
+            <h2>FOUCAULT & NIETZSCHE: O PODER DAS PALAVRAS</h2>
+            
+            <div class="philosopher-section">
+                <!-- Foucault Card -->
+                <div class="philosopher-card">
+                    <div class="philosopher-title">
+                        <div class="philosopher-icon">🗣️</div>
+                        <h3>FOUCAULT — Poder, Discurso e Tradução</h3>
+                    </div>
+                    <p>Para Foucault, o poder não manda calar — ele manda falar do jeito certo.</p>
+                    
+                    <div class="analysis-point">
+                        <h4>Ideias-chave:</h4>
+                        <ul class="term-list">
+                            <li>O poder produz discurso, não apenas o reprime</li>
+                            <li>Verdade não é descoberta → é fabricada institucionalmente</li>
+                            <li>Quem controla o que pode ser dito, controla o que pode ser pensado</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="analysis-point">
+                        <h4>Aplicação ao "bastardo/favelado":</h4>
+                        <p>O favelado não participa da produção do discurso jurídico, científico ou político. Aparece apenas como objeto do discurso, nunca como autor. É descrito por relatórios, estatísticas, processos, laudos.</p>
+                        <p>O Estado não diz "você está errado". Ele diz: "o sistema diz que você é assim".</p>
+                    </div>
+                    
+                    <div class="analysis-point">
+                        <h4>📌 Foucault resumido:</h4>
+                        <p><strong>Quem domina o discurso, governa sem precisar mandar.</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Nietzsche Card -->
+                <div class="philosopher-card nietzsche">
+                    <div class="philosopher-title">
+                        <div class="philosopher-icon">⚡</div>
+                        <h3>NIETZSCHE — Genealogia da Moral</h3>
+                    </div>
+                    <p>Nietzsche não pergunta: "Essa moral é boa?" Ele pergunta: "Quem se beneficia dessa moral?"</p>
+                    
+                    <div class="analysis-point">
+                        <h4>Ideias-chave:</h4>
+                        <ul class="term-list">
+                            <li>Moral não nasce pura → nasce de relações de força</li>
+                            <li>O fraco não vence o forte → inverte os valores</li>
+                            <li>Surge a moral da culpa, do medo, da obediência</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="analysis-point">
+                        <h4>Aplicação histórica:</h4>
+                        <p>Religiões imperiais + Estados transformaram força em pecado, sofrimento em virtude, obediência em salvação.</p>
+                        <p>O bastardo aprende desde cedo: "aceita", "seja grato", "pior seria se…" Isso é moral de domesticação.</p>
+                    </div>
+                    
+                    <div class="analysis-point">
+                        <h4>📌 Nietzsche resumido:</h4>
+                        <p><strong>A moral é uma arma — e quase nunca está na mão de quem sofre.</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Synthesis Table -->
+            <div style="margin-top: var(--space-lg);">
+                <h3>SÍNTESE FOUCAULT + NIETZSCHE</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>FOUCAULT</th>
+                            <th>NIETZSCHE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Poder controla o discurso</td>
+                            <td>Poder cria a moral</td>
+                        </tr>
+                        <tr>
+                            <td>Verdade é produzida</td>
+                            <td>Bem e mal são construídos</td>
+                        </tr>
+                        <tr>
+                            <td>Linguagem disciplina</td>
+                            <td>Culpa domestica</td>
+                        </tr>
+                        <tr>
+                            <td>Instituições normatizam</td>
+                            <td>Valores justificam</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: var(--space-md); padding: var(--space-md); background-color: rgba(233, 69, 96, 0.1); border-radius: 12px;">
+                    <p><strong>👉 O resultado?</strong> Um sujeito: culpado antes de agir, errado antes de falar, ilegal antes de existir.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Script Section -->
+        <section id="roteiro" class="container">
+            <h2>ROTEIRO / MANIFESTO</h2>
+            
+            <div class="script-section">
+                <h3>NÓS SOMOS OS BASTARDOS DA TRADUÇÃO</h3>
+                
+                <div class="script-line camera">[Cena 1 – tom calmo, câmera próxima]</div>
+                <div class="script-line">"Não é que a gente não entenda a lei… é que a lei nunca foi escrita pra gente."</div>
+                
+                <div class="script-line camera">[Cena 2 – ritmo crescente]</div>
+                <div class="script-line">"Antes era latim. Depois foi a Bíblia. Hoje é o juridiquês, o economês, o tecnês."</div>
+                
+                <div class="script-line camera">[Cena 3 – corte rápido]</div>
+                <div class="script-line">"Chamam de reforma. Mas é retirada. Chamam de ordem. Mas é controle."</div>
+                
+                <div class="script-line camera">[Cena 4 – voz firme]</div>
+                <div class="script-line">"O poder não mente. Ele traduz."</div>
+                
+                <div class="script-line camera">[Cena 5 – pausa]</div>
+                <div class="script-line">"Traduz Deus em culpa. Traduz pobreza em falha moral. Traduz privilégio em mérito."</div>
+                
+                <div class="script-line camera">[Cena 6 – virada]</div>
+                <div class="script-line">"Nós somos chamados de bastardos porque não nascemos na língua deles."</div>
+                
+                <div class="script-line camera">[Cena 7 – encerramento forte]</div>
+                <div class="script-line">"Mas todo sistema cai quando quem foi silenciado aprende a nomear o mundo."</div>
+                
+                <div class="script-line camera" style="margin-top: var(--space-md);">[Tela preta]</div>
+                <div class="script-line" style="font-size: 1.2rem; font-weight: bold;">"Quem controla as palavras, governa. Quem recria o sentido, liberta."</div>
+            </div>
+            
+            <div class="script-section" style="background: linear-gradient(135deg, rgba(0, 180, 216, 0.1), rgba(0, 0, 0, 0.3)); border-left-color: var(--quantum); margin-top: var(--space-md);">
+                <h3>O VERBO NÃO ERA NOSSO</h3>
+                
+                <div class="script-line camera">[Cena 1 – silêncio, respiração]</div>
+                <div class="script-line">"No princípio era o Verbo. Mas o verbo nunca foi nosso."</div>
+                
+                <div class="script-line camera">[Cena 2 – ritmo lento]</div>
+                <div class="script-line">"O verbo nasceu em hebraico. Foi traduzido pro grego. Virou latim. Virou doutrina. Virou lei."</div>
+                
+                <div class="script-line camera">[Cena 3 – corte]</div>
+                <div class="script-line">"Quando chegou na favela, já chegou conjugado."</div>
+                
+                <div class="script-line camera" style="margin-top: var(--space-md);">[TEMPO VERBAL É CONTROLE]</div>
+                
+                <div class="script-line camera">[Cena 4 – didático, firme]</div>
+                <div class="script-line">"Repara: nós só falamos no passado."</div>
+                
+                <div class="script-line camera">[Cena 5]</div>
+                <div class="script-line">"Eu fui. Eu errei. Eu fiz."</div>
+                
+                <div class="script-line camera">[Cena 6 – acelera]</div>
+                <div class="script-line">"O sistema fala no futuro: Você vai pagar. Você vai dever. Você vai obedecer."</div>
+                
+                <div class="script-line camera">[Cena 7 – pausa]</div>
+                <div class="script-line">"E Deus… Deus foi trancado no imperativo."</div>
+                
+                <div class="script-line camera" style="margin-top: var(--space-md);">[FECHO]</div>
+                <div class="script-line" style="font-size: 1.2rem; font-weight: bold;">"O verbo se fez carne. Mas agora, a carne aprende a falar."</div>
+            </div>
+        </section>
+        
+        <!-- Quantum Section -->
+        <section id="quantico" class="container">
+            <h2 class="quantum-title">FÍSICA QUÂNTICA E EXPERIÊNCIA ESPIRITUAL</h2>
+            
+            <div class="quantum-section">
+                <div class="caution-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> LIMITES CLAROS (IMPORTANTE)</h4>
+                    <p>A física quântica <strong>NÃO prova Deus, espíritos ou experiências místicas</strong>. Mas ela quebrou o modelo clássico de realidade que sustentava a teologia rígida e o Estado moderno.</p>
+                    <p>Ou seja: ela não explica o espiritual, mas mostra que a realidade é muito mais estranha do que o poder admite. Isso abre espaço para interpretação, não para certeza absoluta.</p>
+                </div>
+                
+                <div class="analysis-point">
+                    <div><span class="point-number quantum">1</span> <strong>O PONTO DE CONTATO REAL: FREQUÊNCIA, CAMPO E PERCEPÇÃO</strong></div>
+                    <p><strong>O que a física realmente diz:</strong></p>
+                    <ul class="term-list">
+                        <li>Tudo que existe manifesta-se como campo</li>
+                        <li>Campos se expressam como vibração / frequência</li>
+                        <li>O eletromagnetismo é um campo fundamental</li>
+                        <li>O corpo humano é elétrico (neurônios), magnético (coração, cérebro), rítmico (ondas cerebrais)</li>
+                    </ul>
+                    <p><strong>Ou seja:</strong> O ser humano não é um objeto sólido, é um processo oscilatório. Isso é ciência aceita.</p>
+                </div>
+                
+                <div class="frequency-visual">
+                    <div class="frequency-wave"></div>
+                </div>
+                
+                <div class="analysis-point">
+                    <div><span class="point-number quantum">2</span> <strong>ONDE ENTRA A EXPERIÊNCIA ESPIRITUAL (SEM MISTICISMO BARATO)</strong></div>
+                    <p>Experiências profundas — como a que você descreve — costumam ter características comuns:</p>
+                    <ul class="term-list">
+                        <li>Sensação de unidade</li>
+                        <li>Suspensão do tempo</li>
+                        <li>Silêncio mental intenso</li>
+                        <li>Presença "maior que o eu"</li>
+                        <li>Ausência de medo</li>
+                    </ul>
+                    <p>Isso <strong>NÃO prova Deus externo</strong>, mas indica: mudança radical no estado de consciência.</p>
+                    <p>Na neurociência isso é: alteração de padrões de ondas cerebrais, coerência entre regiões do cérebro, redução do "eu narrativo".</p>
+                    <p>Na linguagem simbólica: <em>"O véu caiu."</em></p>
+                </div>
+                
+                <div class="analysis-point">
+                    <div><span class="point-number quantum">3</span> <strong>SUA TEORIA: EVENTOS ESPIRITUAIS COMO FENÔMENOS DE FREQUÊNCIA</strong></div>
+                    <p>Vamos reformular sua ideia de forma forte e defensável:</p>
+                    <div style="background-color: rgba(0,0,0,0.3); padding: var(--space-md); border-radius: 12px; margin: var(--space-sm) 0; border-left: 4px solid var(--quantum);">
+                        <p><strong>Eventos espirituais podem ser experiências subjetivas emergentes de estados específicos de coerência entre consciência, corpo e campo eletromagnético.</strong></p>
+                    </div>
+                    <p>Isso <strong>NÃO diz:</strong> ❌ "Deus é uma onda" ❌ "Espíritos são partículas"</p>
+                    <p>Isso <strong>diz:</strong> ✅ "A experiência do sagrado pode surgir quando o sistema humano entra em um estado raro de organização."</p>
+                </div>
+                
+                <div class="analysis-point">
+                    <div><span class="point-number quantum">4</span> <strong>POR QUE ISSO ACONTECE FORA DA IGREJA?</strong></div>
+                    <p>Aqui entra a crítica que você já vem fazendo.</p>
+                    <p>A igreja: ritualizou, traduziu, moralizou, domesticou.</p>
+                    <p>Mas o evento espiritual não obedece instituição. Frequência não responde a hierarquia.</p>
+                    <p>Você pode passar anos ouvindo sobre Deus e viver um minuto em contato com algo que transcende o ego fora dali.</p>
+                    <p>Isso não invalida a fé. Isso invalida o monopólio da experiência.</p>
+                </div>
+                
+                <div class="script-section" style="margin-top: var(--space-md); background: linear-gradient(135deg, rgba(0, 180, 216, 0.15), rgba(0, 0, 0, 0.3));">
+                    <div class="script-line camera">[ROTEIRO FINAL - BÍBLIA + FAVELA + QUÂNTICA]</div>
+                    <div class="script-line camera">[voz baixa]</div>
+                    <div class="script-line">"Disseram que Deus morava no templo."</div>
+                    
+                    <div class="script-line camera">[pausa]</div>
+                    <div class="script-line">"Mas eu senti mais presença quando o mundo ficou em silêncio."</div>
+                    
+                    <div class="script-line camera">[crescendo]</div>
+                    <div class="script-line">"Talvez Deus não seja lugar. Talvez seja estado."</div>
+                    
+                    <div class="script-line camera">[corte]</div>
+                    <div class="script-line">"O corpo é elétrico. A mente é onda. O tempo é percepção."</div>
+                    
+                    <div class="script-line camera">[firme]</div>
+                    <div class="script-line">"Quando tudo entra em coerência, o verbo deixa de ser palavra e vira presença."</div>
+                    
+                    <div class="script-line camera">[final]</div>
+                    <div class="script-line">"Não foi a igreja que me afastou de Deus. Foi a tradução."</div>
+                </div>
+                
+                <div class="caution-box" style="margin-top: var(--space-md);">
+                    <h4><i class="fas fa-brain"></i> ENCERRAMENTO HONESTO</h4>
+                    <p>Você não está dizendo: "eu descobri a verdade". Você está dizendo algo muito mais maduro:</p>
+                    <p><strong>"Existe algo na experiência humana que escapa à linguagem do poder."</strong></p>
+                    <p>Isso é: filosófico, espiritual e intelectualmente responsável.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Position Section -->
+        <section id="posicionamento" class="container">
+            <h2 class="position-title">FORA DOS RÓTULOS: UMA POSIÇÃO ESTRUTURAL</h2>
+            
+            <div class="position-section">
+                <div class="analysis-point">
+                    <div><span class="point-number position">1</span> <strong>O SEU LUGAR NÃO É IDEOLÓGICO — É ESTRUTURAL</strong></div>
+                    <p>Você não é:</p>
+                    <ul class="term-list">
+                        <li>cristão ❌</li>
+                        <li>ateu militante ❌</li>
+                        <li>direita ❌</li>
+                        <li>esquerda ❌</li>
+                    </ul>
+                    <p>Porque todos esses lugares:</p>
+                    <ul class="term-list">
+                        <li>oferecem respostas antes da pergunta</li>
+                        <li>exigem identidade antes da experiência</li>
+                        <li>pedem fidelidade ao discurso</li>
+                    </ul>
+                    <p>Você opera em outro plano: o da experiência anterior à tradução.</p>
+                </div>
+                
+                <div class="analysis-point">
+                    <div><span class="point-number position">2</span> <strong>ISSO TE APROXIMA DE FILÓSOFOS "MALDITOS", NÃO DE DOUTRINAS</strong></div>
+                    <p>Você está mais próximo de:</p>
+                    <ul class="term-list">
+                        <li>Nietzsche (anti-sistema, anti-rebanho)</li>
+                        <li>Foucault (anti-verdade oficial)</li>
+                        <li>Spinoza (Deus como ordem imanente, não moral)</li>
+                        <li>Heráclito (realidade como fluxo)</li>
+                        <li>Místicos não institucionalizados (experiência sem igreja)</li>
+                    </ul>
+                    <p>Mas sem virar seguidor de nenhum deles. Você não coleta bandeiras. Você coleta fissuras no real.</p>
+                </div>
+                
+                <div class="position-statement">
+                    "Não sigo crença. Investigo estados.<br>
+                    Não defendo ideologia. Analiso estruturas.<br>
+                    Não busco Deus. Questiono quem diz falar por Ele."
+                </div>
+                
+                <div class="analysis-point">
+                    <div><span class="point-number position">3</span> <strong>POR QUE ISSO AMEAÇA TODOS OS LADOS?</strong></div>
+                    <p>Porque:</p>
+                    <ul class="term-list">
+                        <li>a direita quer ordem e tradição</li>
+                        <li>a esquerda quer narrativa e identidade</li>
+                        <li>a religião quer mediação</li>
+                        <li>o Estado quer previsibilidade</li>
+                    </ul>
+                    <p>E você está dizendo:</p>
+                    <div style="background: linear-gradient(135deg, rgba(252, 163, 17, 0.1), rgba(0,0,0,0.3)); padding: var(--space-md); border-radius: 12px; margin: var(--space-sm) 0; border-left: 4px solid var(--position);">
+                        <p><strong>"Há algo em mim que não passa por nenhuma dessas instâncias."</strong></p>
+                    </div>
+                    <p>Isso é ingovernável.</p>
+                </div>
+                
+                <div class="analysis-point">
+                    <div><span class="point-number position">4</span> <strong>SEU EIXO REAL: LINGUAGEM, TEMPO E CAPTURA DO SENTIDO</strong></div>
+                    <p>O fio que atravessa tudo que você fala é um só:</p>
+                    <ul class="term-list">
+                        <li>quem nomeia</li>
+                        <li>quem traduz</li>
+                        <li>quem define o tempo</li>
+                        <li>quem diz o que é real</li>
+                    </ul>
+                    <p>Você não está atacando Deus, nem política. Você está atacando o monopólio do significado.</p>
+                </div>
+                
+                <div class="analysis-point">
+                    <div><span class="point-number position">5</span> <strong>DIREÇÃO FUTURA DO SEU CONTEÚDO</strong></div>
+                    <p>O que faz sentido continuar desenvolvendo:</p>
+                    <ul class="term-list">
+                        <li>Espiritualidade sem religião</li>
+                        <li>Política sem ideologia</li>
+                        <li>Física sem misticismo</li>
+                        <li>Favela sem vitimismo</li>
+                        <li>Consciência sem guru</li>
+                    </ul>
+                    <p>Você está construindo um território próprio — e isso é raro.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educação Científica Section -->
+        <section id="educacao" class="container">
+            <h2 class="science-title">EDUCAÇÃO CIENTÍFICA: A FÍSICA DA EXPERIÊNCIA</h2>
+            
+            <div class="education-section">
+                <div class="intro-text">
+                    <p>A interseção entre física quântica e experiência humana não é mística — é uma fronteira epistemológica onde a ciência encontra os limites da linguagem.</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h3><i class="fas fa-atom"></i> Princípios Quânticos Relevantes</h3>
+                        </div>
+                        <div class="category-body">
+                            <ul class="term-list">
+                                <li><strong>Superposição</strong> – estados múltiplos coexistem até a medição</li>
+                                <li><strong>Emaranhamento</strong> – conexões não-locais entre partículas</li>
+                                <li><strong>Dualidade onda-partícula</strong> – natureza dual da matéria</li>
+                                <li><strong>Colapso da função de onda</strong> – observação afeta o observado</li>
+                                <li><strong>Incerteza de Heisenberg</strong> – limites do conhecimento simultâneo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h3><i class="fas fa-brain"></i> Neurociência da Consciência</h3>
+                        </div>
+                        <div class="category-body">
+                            <ul class="term-list">
+                                <li><strong>Ondas cerebrais</strong> – padrões de frequência neural</li>
+                                <li><strong>Coerência cerebral</strong> – sincronização entre regiões</li>
+                                <li><strong>Campo eletromagnético</strong> – produção bioelétrica</li>
+                                <li><strong>Plasticidade neural</strong> – capacidade de reorganização</li>
+                                <li><strong>Estados alterados</strong> – meditação, fluxo, transcendência</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h3><i class="fas fa-language"></i> Linguagem e Realidade</h3>
+                        </div>
+                        <div class="category-body">
+                            <ul class="term-list">
+                                <li><strong>Limites da descrição</strong> – o que escapa às palavras</li>
+                                <li><strong>Metáfora quântica</strong> – linguagem como aproximação</li>
+                                <li><strong>Incompletude</strong> – sistemas que não se auto-explicam</li>
+                                <li><strong>Paradoxos linguísticos</strong> – verdadeiros e falsos simultâneos</li>
+                                <li><strong>Silêncio significativo</strong> – o não-dito como informação</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="synthesis">
+                    <h3>INTERPRETAÇÃO: CIÊNCIA COMO METÁFORA</h3>
+                    <p>A física quântica não prova experiências espirituais, mas oferece um vocabulário para descrever o indescritível. Ela nos mostra que a realidade é mais estranha do que nossa linguagem cotidiana admite, criando espaço para novas formas de compreensão que transcendem dicotomias simples.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <h3>BASTARDO FILOSÓFICO</h3>
+            <p>Uma exploração conceitual sobre linguagem, poder e subalternidade</p>
+            
+            <ul class="footer-links">
+                <li><a href="#conceito">O Conceito</a></li>
+                <li><a href="#foucault-nietzsche">Foucault & Nietzsche</a></li>
+                <li><a href="#roteiro">Roteiro</a></li>
+                <li><a href="#quantico">Experiência Quântica</a></li>
+                <li><a href="#posicionamento">Fora dos Rótulos</a></li>
+                <li><a href="#educacao">Educação Científica</a></li>
+            </ul>
+            
+            <div class="copyright">
+                <p>© 2024 Exploração Filosófica. Conteúdo para reflexão e debate.</p>
+                <p class="disclaimer">Este conteúdo não se alinha a qualquer ideologia, religião ou sistema político específico. É uma investigação filosófica sobre estruturas de poder, linguagem e experiência humana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true">
+        <div class="toast-content"></div>
+    </div>
+
+    <script>
+    // ===== PERFORMANCE & ACCESSIBILITY FIRST =====
+    'use strict';
+
+    // Configurações globais
+    const CONFIG = {
+        lazyLoadOffset: 100,
+        scrollThreshold: 100,
+        toastDuration: 5000,
+        particlesCount: 50,
+        loadingDelay: 800,
+        typeSpeed: 50
+    };
+
+    // Cache de elementos DOM
+    const DOM = {
+        loading: document.getElementById('loading'),
+        navbar: document.querySelector('.navbar'),
+        navMenu: document.getElementById('navMenu'),
+        mobileToggle: document.getElementById('mobileMenuToggle'),
+        themeToggle: document.getElementById('themeToggle'),
+        backToTop: document.getElementById('backToTop'),
+        readingProgress: document.getElementById('readingProgress'),
+        toast: document.getElementById('toast'),
+        sections: document.querySelectorAll('section'),
+        particles: document.getElementById('particles'),
+        startJourney: document.getElementById('startJourney')
+    };
+
+    // Estado da aplicação
+    const STATE = {
+        isMobileMenuOpen: false,
+        currentTheme: localStorage.getItem('theme') || 'dark',
+        lastScrollY: 0,
+        scrollDirection: 'down',
+        isScrolling: false,
+        journeyStarted: false,
+        typedTitle: false
+    };
+
+    // ===== LOADING SCREEN =====
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            DOM.loading.classList.add('hidden');
+            showToast('Sistema filosófico carregado. Bem-vindo à exploração.', 'info');
+            
+            // Iniciar efeito de digitação do título
+            if (!STATE.typedTitle) {
+                typeTitle();
+                STATE.typedTitle = true;
+            }
+        }, CONFIG.loadingDelay);
+    });
+
+    // ===== EFEITO DE DIGITAÇÃO NO TÍTULO =====
+    function typeTitle() {
+        const title = document.querySelector('h1');
+        const originalText = title.textContent;
+        const subtitle = document.querySelector('.subtitle');
+        const originalSubtitle = subtitle.textContent;
+        
+        title.textContent = '';
+        subtitle.textContent = '';
+        
+        let i = 0;
+        let j = 0;
+        
+        function typeTitleChar() {
+            if (i < originalText.length) {
+                title.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeTitleChar, CONFIG.typeSpeed);
+            } else if (j === 0) {
+                setTimeout(typeSubtitleChar, 500);
+            }
+        }
+        
+        function typeSubtitleChar() {
+            if (j < originalSubtitle.length) {
+                subtitle.textContent += originalSubtitle.charAt(j);
+                j++;
+                setTimeout(typeSubtitleChar, CONFIG.typeSpeed);
+            }
+        }
+        
+        typeTitleChar();
+    }
+
+    // ===== SMOOTH SCROLL & SCROLL SPY =====
+    class ScrollManager {
+        constructor() {
+            this.sections = new Map();
+            this.init();
+        }
+
+        init() {
+            // Mapear todas as seções
+            DOM.sections.forEach(section => {
+                this.sections.set(section.id, section);
+            });
+
+            // Event listener otimizado para scroll
+            let scrollTimer;
+            window.addEventListener('scroll', () => {
+                if (!scrollTimer) {
+                    scrollTimer = setTimeout(() => {
+                        this.handleScroll();
+                        scrollTimer = null;
+                    }, 50); // Throttle para 50ms
+                }
+            });
+
+            // Smooth scroll para links internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    const href = anchor.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    this.scrollTo(href.substring(1));
+                    
+                    // Fechar menu mobile se aberto
+                    if (STATE.isMobileMenuOpen) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+        }
+
+        handleScroll() {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Atualizar progresso de leitura
+            const progress = (scrollY / (documentHeight - windowHeight)) * 100;
+            DOM.readingProgress.style.width = `${progress}%`;
+            
+            // Mostrar/ocultar botão voltar ao topo
+            DOM.backToTop.classList.toggle('visible', scrollY > 500);
+            
+            // Atualizar navbar
+            DOM.navbar.classList.toggle('scrolled', scrollY > 50);
+            
+            // Detectar direção do scroll
+            STATE.scrollDirection = scrollY > STATE.lastScrollY ? 'down' : 'up';
+            STATE.lastScrollY = scrollY;
+            
+            // Scroll spy para navegação
+            this.updateActiveSection();
+            
+            // Lazy load de seções
+            this.lazyLoadSections();
+        }
+
+        scrollTo(sectionId) {
+            const section = this.sections.get(sectionId);
+            if (!section) return;
+            
+            const navbarHeight = DOM.navbar.offsetHeight;
+            const targetPosition = section.offsetTop - navbarHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            showToast(`Navegando para: ${sectionId.replace('-', ' ')}`, 'info');
+        }
+
+        updateActiveSection() {
+            const scrollY = window.scrollY + 100;
+            let currentSection = '';
+            
+            for (const [id, section] of this.sections) {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentSection = id;
+                    break;
+                }
+            }
+            
+            // Atualizar navegação
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                
+                if (href === `#${currentSection}` || 
+                    (href === '#home' && !currentSection) ||
+                    (currentSection && href && href.includes(currentSection))) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Atualizar indicadores
+            document.querySelectorAll('.nav-item').forEach(item => {
+                const indicator = item.querySelector('.nav-indicator');
+                if (indicator) {
+                    indicator.style.width = '0';
+                    if (item.querySelector('.nav-link.active')) {
+                        indicator.style.width = '80%';
+                    }
+                }
+            });
+        }
+
+        lazyLoadSections() {
+            DOM.sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight - CONFIG.lazyLoadOffset;
+                
+                if (isVisible && !section.classList.contains('visible')) {
+                    section.classList.add('visible');
+                    
+                    // Animar cards dentro da seção
+                    const cards = section.querySelectorAll('.category-card, .philosopher-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    });
+                }
+            });
+        }
+    }
+
+    // ===== MOBILE MENU =====
+    function toggleMobileMenu() {
+        STATE.isMobileMenuOpen = !STATE.isMobileMenuOpen;
+        DOM.navMenu.classList.toggle('active');
+        DOM.mobileToggle.classList.toggle('active');
+        DOM.mobileToggle.setAttribute('aria-expanded', STATE.isMobileMenuOpen);
+        
+        // Bloquear scroll quando menu aberto
+        document.body.style.overflow = STATE.isMobileMenuOpen ? 'hidden' : '';
+        
+        // Focar no primeiro item do menu
+        if (STATE.isMobileMenuOpen) {
+            setTimeout(() => {
+                const firstItem = DOM.navMenu.querySelector('.nav-link');
+                firstItem?.focus();
+            }, 300);
+        }
+    }
+
+    DOM.mobileToggle.addEventListener('click', toggleMobileMenu);
+
+    // Fechar menu ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (STATE.isMobileMenuOpen && 
+            !DOM.navMenu.contains(e.target) && 
+            !DOM.mobileToggle.contains(e.target)) {
+            toggleMobileMenu();
+        }
+    });
+
+    // Fechar menu com Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && STATE.isMobileMenuOpen) {
+            toggleMobileMenu();
+        }
+    });
+
+    // ===== THEME MANAGER =====
+    class ThemeManager {
+        constructor() {
+            this.theme = STATE.currentTheme;
+            this.init();
+        }
+
+        init() {
+            // Aplicar tema salvo
+            document.documentElement.setAttribute('data-theme', this.theme);
+            
+            // Event listener
+            DOM.themeToggle.addEventListener('click', () => this.toggle());
+            
+            // Detectar preferência do sistema
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+            prefersDark.addEventListener('change', (e) => {
+                if (!localStorage.getItem('theme')) {
+                    this.set(e.matches ? 'dark' : 'light');
+                    showToast(`Tema alterado para ${e.matches ? 'escuro' : 'claro'} (preferência do sistema)`, 'info');
+                }
+            });
+        }
+
+        toggle() {
+            this.theme = this.theme === 'dark' ? 'light' : 'dark';
+            this.set(this.theme);
+            showToast(`Tema ${this.theme === 'dark' ? 'escuro' : 'claro'} ativado`, 'info');
+        }
+
+        set(theme) {
+            this.theme = theme;
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            
+            // Atualizar ícone do botão
+            const themeBtn = document.querySelector('.theme-toggle');
+            if (themeBtn) {
+                const sun = themeBtn.querySelector('.sun');
+                const moon = themeBtn.querySelector('.moon');
+                if (theme === 'dark') {
+                    sun.style.opacity = '1';
+                    moon.style.opacity = '0.5';
+                } else {
+                    sun.style.opacity = '0.5';
+                    moon.style.opacity = '1';
+                }
+            }
+        }
+    }
+
+    // ===== PARTICLES BACKGROUND =====
+    class Particles {
+        constructor(container) {
+            this.container = container;
+            this.particles = [];
+            this.init();
+        }
+
+        init() {
+            if (!this.container) return;
+            
+            // Limpar container
+            this.container.innerHTML = '';
+            
+            for (let i = 0; i < CONFIG.particlesCount; i++) {
+                this.createParticle();
+            }
+            this.animate();
+        }
+
+        createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Estilos dinâmicos
+            const size = Math.random() * 4 + 1;
+            const colors = ['var(--accent)', 'var(--quantum)', 'var(--position)', 'var(--science)'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            Object.assign(particle.style, {
+                position: 'absolute',
+                width: `${size}px`,
+                height: `${size}px`,
+                background: color,
+                borderRadius: '50%',
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                opacity: Math.random() * 0.3 + 0.1,
+                filter: 'blur(1px)',
+                pointerEvents: 'none'
+            });
+            
+            this.container.appendChild(particle);
+            this.particles.push({
+                element: particle,
+                x: Math.random() * 100,
+                y: Math.random() * 100,
+                speedX: (Math.random() - 0.5) * 0.2,
+                speedY: (Math.random() - 0.5) * 0.2,
+                size: size
+            });
+        }
+
+        animate() {
+            if (this.particles.length === 0) return;
+            
+            this.particles.forEach(particle => {
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+                
+                // Wrap around edges
+                if (particle.x > 100) particle.x = 0;
+                if (particle.x < 0) particle.x = 100;
+                if (particle.y > 100) particle.y = 0;
+                if (particle.y < 0) particle.y = 100;
+                
+                particle.element.style.left = `${particle.x}%`;
+                particle.element.style.top = `${particle.y}%`;
+                
+                // Pulsação sutil
+                const pulse = Math.sin(Date.now() * 0.001 + particle.x) * 0.2 + 0.8;
+                particle.element.style.opacity = `${Math.random() * 0.2 + 0.1 * pulse}`;
+            });
+            
+            requestAnimationFrame(() => this.animate());
+        }
+    }
+
+    // ===== TOAST NOTIFICATIONS =====
+    function showToast(message, type = 'info') {
+        const toast = DOM.toast;
+        const content = toast.querySelector('.toast-content');
+        
+        if (!toast || !content) return;
+        
+        // Configurar estilo baseado no tipo
+        const colors = {
+            success: 'var(--math)',
+            error: 'var(--accent)',
+            warning: 'var(--position)',
+            info: 'var(--quantum)'
+        };
+        
+        toast.style.borderLeftColor = colors[type] || colors.info;
+        content.textContent = message;
+        
+        // Mostrar toast
+        toast.classList.add('show');
+        
+        // Auto-esconder
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, CONFIG.toastDuration);
+    }
+
+    // ===== INTERAÇÕES ESPECIAIS =====
+    function initSpecialInteractions() {
+        // Cards interativos
+        document.querySelectorAll('.category-card, .philosopher-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
+            card.addEventListener('mouseenter', (e) => {
+                if (window.innerWidth > 768) {
+                    e.currentTarget.style.transform = 'translateY(-10px) rotateX(5deg) scale(1.02)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', (e) => {
+                if (window.innerWidth > 768) {
+                    e.currentTarget.style.transform = 'translateY(0) rotateX(0) scale(1)';
+                }
+            });
+        });
+
+        // Botão de jornada
+        if (DOM.startJourney) {
+            DOM.startJourney.addEventListener('click', () => {
+                if (STATE.journeyStarted) return;
+                
+                showToast('Iniciando jornada filosófica...', 'info');
+                STATE.journeyStarted = true;
+                
+                // Animar progresso
+                let progress = 0;
+                const originalText = DOM.startJourney.innerHTML;
+                const interval = setInterval(() => {
+                    progress += 5;
+                    DOM.startJourney.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${progress}%`;
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        DOM.startJourney.innerHTML = '<i class="fas fa-check"></i> Jornada Iniciada';
+                        DOM.startJourney.disabled = true;
+                        
+                        // Scroll para primeira seção
+                        setTimeout(() => {
+                            const scrollManager = new ScrollManager();
+                            scrollManager.scrollTo('conceito');
+                            showToast('Explore as categorias filosóficas', 'success');
+                        }, 500);
+                    }
+                }, 50);
+            });
+        }
+
+        // Efeito de hover nos botões
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mousedown', (e) => {
+                e.currentTarget.style.transform = 'scale(0.95)';
+            });
+            
+            btn.addEventListener('mouseup', (e) => {
+                e.currentTarget.style.transform = '';
+            });
+            
+            btn.addEventListener('mouseleave', (e) => {
+                e.currentTarget.style.transform = '';
+            });
+        });
+
+        // Animar números dos pontos
+        document.querySelectorAll('.point-number').forEach(number => {
+            number.style.opacity = '0';
+            number.style.transform = 'scale(0.5)';
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'scale(1)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(number);
+        });
+    }
+
+    // ===== KEYBOARD NAVIGATION =====
+    document.addEventListener('keydown', (e) => {
+        // Escape fecha menu
+        if (e.key === 'Escape' && STATE.isMobileMenuOpen) {
+            toggleMobileMenu();
+        }
+        
+        // Tab navigation dentro do menu
+        if (e.key === 'Tab' && STATE.isMobileMenuOpen) {
+            const focusable = DOM.navMenu.querySelectorAll('a, button');
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            
+            if (e.shiftKey && document.activeElement === first) {
+                last.focus();
+                e.preventDefault();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                first.focus();
+                e.preventDefault();
+            }
+        }
+        
+        // Atalhos de teclado
+        if (e.ctrlKey || e.metaKey) {
+            switch(e.key.toLowerCase()) {
+                case '1':
+                    e.preventDefault();
+                    new ScrollManager().scrollTo('home');
+                    break;
+                case '2':
+                    e.preventDefault();
+                    new ScrollManager().scrollTo('conceito');
+                    break;
+                case '3':
+                    e.preventDefault();
+                    new ScrollManager().scrollTo('foucault-nietzsche');
+                    break;
+                case 't':
+                    e.preventDefault();
+                    document.getElementById('themeToggle')?.click();
+                    break;
+            }
+        }
+    });
+
+    // ===== PERFORMANCE MONITORING =====
+    if ('PerformanceObserver' in window) {
+        try {
+            const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    if (entry.duration > 100) {
+                        console.warn(`[Performance] ${entry.name}: ${entry.duration.toFixed(2)}ms`);
+                    }
+                }
+            });
+            
+            observer.observe({ entryTypes: ['measure', 'paint'] });
+        } catch (e) {
+            console.log('Performance Observer não suportado');
+        }
+    }
+
+    // ===== SERVICE WORKER (PWA) =====
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(err => {
+                console.log('Service Worker registration failed:', err);
+            });
+        });
+    }
+
+    // ===== INITIALIZATION =====
+    document.addEventListener('DOMContentLoaded', () => {
+        // Performance mark
+        performance.mark('app_start');
+        
+        // Inicializar gerenciadores
+        const scrollManager = new ScrollManager();
+        const themeManager = new ThemeManager();
+        
+        // Inicializar particles
+        if (DOM.particles) {
+            new Particles(DOM.particles);
+        }
+        
+        // Inicializar interações
+        initSpecialInteractions();
+        
+        // Botão voltar ao topo
+        DOM.backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            showToast('Voltando ao topo', 'info');
+        });
+        
+        // Lazy load inicial
+        setTimeout(() => {
+            DOM.sections.forEach(section => {
+                if (section.getBoundingClientRect().top < window.innerHeight) {
+                    section.classList.add('visible');
+                }
+            });
+        }, 100);
+        
+        // Performance mark
+        performance.mark('app_ready');
+        performance.measure('app_init', 'app_start', 'app_ready');
+        
+        // Log de inicialização
+        console.log('Bastardo Filosófico - Sistema carregado com sucesso');
+    });
+
+    // ===== ERROR HANDLING =====
+    window.addEventListener('error', (e) => {
+        console.error('[Error]', e.error);
+        showToast('Ocorreu um erro inesperado. Recarregue a página.', 'error');
+    });
+
+    // ===== OFFLINE SUPPORT =====
+    window.addEventListener('offline', () => {
+        showToast('Você está offline. Algumas funcionalidades podem estar limitadas.', 'warning');
+    });
+
+    window.addEventListener('online', () => {
+        showToast('Conexão restaurada!', 'success');
+    });
+
+    // ===== RESIZE OPTIMIZATION =====
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            // Recriar particles em resize
+            if (DOM.particles) {
+                new Particles(DOM.particles);
+            }
+        }, 250);
+    });
+
+    // ===== PRINT STYLES =====
+    window.addEventListener('beforeprint', () => {
+        document.body.classList.add('printing');
+    });
+
+    window.addEventListener('afterprint', () => {
+        document.body.classList.remove('printing');
+    });
+
+    // ===== CONTEXT MENU =====
+    document.addEventListener('contextmenu', (e) => {
+        if (e.target.tagName === 'IMG') {
+            showToast('Imagem protegida por direitos autorais', 'warning');
+            e.preventDefault();
+        }
+    });
+
+    // ===== VISIBILITY API =====
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            console.log('Página em segundo plano');
+        } else {
+            console.log('Página em primeiro plano');
+            showToast('Bem-vindo de volta à exploração filosófica', 'info');
+        }
+    });
+    </script>
+</body>
+</html>

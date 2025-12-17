@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elliot Games - Jogando com Filosofia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --light: #f1f1f1;
+            --dark: #0f0f1e;
+            --gaming: #00b4d8;
+            --anime: #ff6b6b;
+            --arcade: #9d4edd;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.7;
+            color: var(--light);
+            background-color: var(--dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 180, 216, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(233, 69, 96, 0.1) 0%, transparent 20%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Press Start 2P', cursive;
+            font-weight: normal;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            color: var(--light);
+            text-shadow: 0 0 10px var(--gaming), 0 0 20px var(--gaming);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--accent);
+            text-shadow: 0 0 5px rgba(233, 69, 96, 0.5);
+            margin-top: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent);
+            position: relative;
+        }
+        
+        h2:after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--light);
+            margin-top: 2rem;
+        }
+        
+        .arcade-title {
+            color: var(--arcade);
+            text-shadow: 0 0 5px rgba(157, 78, 221, 0.5);
+            border-bottom-color: var(--arcade);
+        }
+        
+        .gaming-title {
+            color: var(--gaming);
+            text-shadow: 0 0 5px rgba(0, 180, 216, 0.5);
+            border-bottom-color: var(--gaming);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(10, 10, 20, 0.95), rgba(10, 10, 20, 0.95)), url('https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pixel-corner {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+        
+        .pixel-corner.tl {
+            top: 20px;
+            left: 20px;
+            border-top: 5px solid var(--accent);
+            border-left: 5px solid var(--accent);
+        }
+        
+        .pixel-corner.tr {
+            top: 20px;
+            right: 20px;
+            border-top: 5px solid var(--gaming);
+            border-right: 5px solid var(--gaming);
+        }
+        
+        .pixel-corner.bl {
+            bottom: 20px;
+            left: 20px;
+            border-bottom: 5px solid var(--arcade);
+            border-left: 5px solid var(--arcade);
+        }
+        
+        .pixel-corner.br {
+            bottom: 20px;
+            right: 20px;
+            border-bottom: 5px solid var(--anime);
+            border-right: 5px solid var(--anime);
+        }
+        
+        .header-content {
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-out;
+            z-index: 2;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--gaming);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 0 0 5px rgba(0, 180, 216, 0.5);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--light);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        .btn:before {
+            content: ">";
+            position: absolute;
+            left: 10px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .btn:hover:before {
+            opacity: 1;
+            left: 15px;
+        }
+        
+        .btn:after {
+            content: "<";
+            position: absolute;
+            right: 10px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .btn:hover:after {
+            opacity: 1;
+            right: 15px;
+        }
+        
+        .btn-gaming {
+            background-color: var(--gaming);
+            border-color: var(--gaming);
+        }
+        
+        .btn-gaming:hover {
+            color: var(--gaming);
+        }
+        
+        .btn-arcade {
+            background-color: var(--arcade);
+            border-color: var(--arcade);
+        }
+        
+        .btn-arcade:hover {
+            color: var(--arcade);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(15, 15, 30, 0.95);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        nav.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+            text-shadow: 0 0 5px rgba(233, 69, 96, 0.5);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 0.95rem;
+            padding: 5px 0;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a:before {
+            content: "[";
+            position: absolute;
+            left: -10px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:after {
+            content: "]";
+            position: absolute;
+            right: -10px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:before, .nav-links a:hover:after {
+            opacity: 1;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 5rem 0;
+        }
+        
+        section {
+            margin-bottom: 6rem;
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            background-color: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 0;
+            border-left: 4px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-text:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--gaming), var(--arcade));
+        }
+        
+        /* Games Grid */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .game-card {
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            border: 2px solid rgba(255,255,255,0.1);
+            height: 100%;
+            position: relative;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: var(--accent);
+        }
+        
+        .game-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--gaming), var(--arcade));
+        }
+        
+        .game-header {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0,0,0,0.3);
+        }
+        
+        .game-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 0;
+            object-fit: cover;
+            border: 3px solid;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .game-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        .game-type {
+            font-size: 0.9rem;
+            color: #aaa;
+            font-style: italic;
+        }
+        
+        .game-body {
+            padding: 1.5rem;
+        }
+        
+        .game-desc {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .game-lesson {
+            background-color: rgba(0, 180, 216, 0.1);
+            padding: 1rem;
+            border-left: 3px solid var(--gaming);
+            margin: 1rem 0;
+        }
+        
+        .game-lesson h4 {
+            font-size: 1rem;
+            color: var(--gaming);
+            margin-bottom: 0.5rem;
+        }
+        
+        .game-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+        
+        .play-btn {
+            padding: 8px 20px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 600;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            transition: var(--transition);
+            border: 2px solid var(--accent);
+        }
+        
+        .play-btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+        
+        .info-btn {
+            padding: 8px 15px;
+            background-color: transparent;
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 600;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            transition: var(--transition);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .info-btn:hover {
+            border-color: var(--gaming);
+            color: var(--gaming);
+        }
+        
+        /* Philosophy Section */
+        .philosophy-section {
+            background-color: rgba(10, 10, 20, 0.7);
+            padding: 4rem 0;
+            margin: 4rem 0;
+            border-top: 3px solid var(--arcade);
+            border-bottom: 3px solid var(--arcade);
+        }
+        
+        .philosophy-content {
+            background-color: rgba(255,255,255,0.05);
+            padding: 3rem;
+            border: 2px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        .philosophy-content:before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 1px solid var(--arcade);
+            pointer-events: none;
+        }
+        
+        .philo-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .philo-point {
+            padding: 1.5rem;
+            background-color: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        .philo-point:before {
+            content: "LVL";
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: var(--dark);
+            color: var(--arcade);
+            padding: 0 10px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+        }
+        
+        /* Game Development */
+        .dev-stages {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .dev-stage {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem;
+            background-color: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        .stage-number {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2rem;
+            color: var(--accent);
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .stage-content {
+            flex-grow: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            border-top: 3px solid var(--accent);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 1rem;
+            max-width: 600px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pixelGlow {
+            0%, 100% { box-shadow: 0 0 5px var(--accent); }
+            50% { box-shadow: 0 0 20px var(--accent); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pixel-glow {
+            animation: pixelGlow 2s infinite;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .nav-links li {
+                margin-left: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.6rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .games-grid, .philo-points {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(15, 15, 30, 0.98);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+                z-index: 1001;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                width: 100%;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 12px 20px;
+                font-size: 0.8rem;
+            }
+            
+            .dev-stage {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .intro-text, .philosophy-content, .dev-stage {
+                padding: 1.5rem;
+            }
+            
+            .game-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .play-btn, .info-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .games-grid, .philo-points {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+            }
+            
+            .footer-links li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-gamepad"></i>
+                Elliot<span>Games</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="nexus.html"><i class="fas fa-dragon"></i> Nexus</a></li>
+                <li><a href="games.html" class="pixel-glow"><i class="fas fa-joystick"></i> Games</a></li>
+                <li><a href="criancas.html"><i class="fas fa-child"></i> Elliot Kids</a></li>
+                <li><a href="#filosofia"><i class="fas fa-brain"></i> Filosofia</a></li>
+                <li><a href="#desenvolvimento"><i class="fas fa-code"></i> Desenvolvimento</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="pixel-corner tl"></div>
+        <div class="pixel-corner tr"></div>
+        <div class="pixel-corner bl"></div>
+        <div class="pixel-corner br"></div>
+        
+        <div class="header-content">
+            <h1>ELLIOT GAMES</h1>
+            <p class="subtitle">Onde Filosofia Encontra Diversão</p>
+            <p class="tagline">Jogos que ensinam, desafiam e fazem pensar - porque aprender pode ser a maior aventura!</p>
+            <a href="#jogos" class="btn">JOGAR AGORA</a>
+            <a href="#filosofia" class="btn btn-gaming">APRENDER FILOSOFIA</a>
+            <a href="criancas.html" class="btn btn-arcade">VERSÃO KIDS</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Jogos Section -->
+         <div class="games-grid">
+    <!-- Jogo 1: Quiz Filosófico -->
+    <div class="game-card fade-in">
+        <div class="game-header">
+            <div class="game-icon" style="border-color: var(--accent); background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(0,0,0,0.5) 100%);">
+                ❓
+            </div>
+            <div class="game-name">Quiz das Verdades Ocultas</div>
+            <div class="game-type">Quiz Filosófico • Nível: Iniciante</div>
+        </div>
+        <div class="game-body">
+            <div class="game-desc">
+                Inspirado nas palavras cruzadas que meu avô me ensinou, mas com perguntas que revelam como o conhecimento pode ser questionado. Cada resposta certa leva a uma nova pergunta mais profunda.
+            </div>
+            
+            <div class="game-lesson">
+                <h4>📚 O QUE ENSINA:</h4>
+                <p>Pensamento crítico, análise de premissas, reconhecimento de viés cognitivo.</p>
+                <p><small>Inspiração: Palavras cruzadas + perguntas de livros de banca</small></p>
+            </div>
+            
+            <div class="game-controls">
+                <a href="#" class="play-btn">JOGAR AGORA</a>
+                <a href="#" class="info-btn">SOBRE O JOGO</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Jogo 2: Memória Filosófica -->
+    <div class="game-card fade-in">
+        <div class="game-header">
+            <div class="game-icon" style="border-color: var(--gaming); background: linear-gradient(135deg, rgba(0, 180, 216, 0.2) 0%, rgba(0,0,0,0.5) 100%);">
+                🧠
+            </div>
+            <div class="game-name">Memória Filosófica</div>
+            <div class="game-type">Jogo de Memória • Nível: Intermediário</div>
+        </div>
+        <div class="game-body">
+            <div class="game-desc">
+                Como o baralho que meu avô usava para ensinar concentração, mas com conceitos filosóficos. Encontre pares entre ideias e pensadores - algumas conexões são surpreendentes!
+            </div>
+            
+            <div class="game-lesson">
+                <h4>🔗 O QUE ENSINA:</h4>
+                <p>Associação de ideias, reconhecimento de padrões, história do pensamento.</p>
+                <p><small>Inspiração: Jogo da memória + baralho educativo</small></p>
+            </div>
+            
+            <div class="game-controls">
+                <a href="#" class="play-btn">JOGAR AGORA</a>
+                <a href="#" class="info-btn">SOBRE O JOGO</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Jogo 3: Escolhas Éticas -->
+    <div class="game-card fade-in">
+        <div class="game-header">
+            <div class="game-icon" style="border-color: var(--arcade); background: linear-gradient(135deg, rgba(157, 78, 221, 0.2) 0%, rgba(0,0,0,0.5) 100%);">
+                ⚖️
+            </div>
+            <div class="game-name">Dilemas Éticos</div>
+            <div class="game-type">Jogo de Escolhas • Nível: Avançado</div>
+        </div>
+        <div class="game-body">
+            <div class="game-desc">
+                Como o xadrez que meu avô me ensinou: cada movimento tem consequências. Situações onde não há escolhas "certas", apenas diferentes jogadas éticas com diferentes resultados.
+            </div>
+            
+            <div class="game-lesson">
+                <h4>🤝 O QUE ENSINA:</h4>
+                <p>Ética prática, pensamento consequencialista, empatia e tomada de decisão complexa.</p>
+                <p><small>Inspiração: Xadrez + dilemas morais de livros</small></p>
+            </div>
+            
+            <div class="game-controls">
+                <a href="#" class="play-btn">JOGAR AGORA</a>
+                <a href="#" class="info-btn">SOBRE O JOGO</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Jogo 4: Quebra-Cabeça do Tempo -->
+    <div class="game-card fade-in">
+        <div class="game-header">
+            <div class="game-icon" style="border-color: var(--anime); background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(0,0,0,0.5) 100%);">
+                🧩
+            </div>
+            <div class="game-name">Quebra-Cabeça do Tempo</div>
+            <div class="game-type">Puzzle • Nível: Intermediário</div>
+        </div>
+        <div class="game-body">
+            <div class="game-desc">
+                Inspirado no sudoku e quebra-cabeças de revista. Organize eventos históricos e conceitos filosóficos, mas cuidado: o tempo das ideias nem sempre é linear!
+            </div>
+            
+            <div class="game-lesson">
+                <h4>⏳ O QUE ENSINA:</h4>
+                <p>Contexto histórico, evolução do pensamento, causalidade e sincronicidade.</p>
+                <p><small>Inspiração: Sudoku + quebra-cabeças lógicos</small></p>
+            </div>
+            
+            <div class="game-controls">
+                <a href="#" class="play-btn">JOGAR AGORA</a>
+                <a href="#" class="info-btn">SOBRE O JOGO</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nova Seção: Aprendizado com o Avô -->
+<div class="intro-text fade-in" style="margin-top: 3rem; background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(0,0,0,0.3) 100%); border-left-color: var(--arcade);">
+    <h3>🎴 O QUE MEU AVÔ ME ENSINOU SOBRE JOGOS</h3>
+    <p>Meu avô me mostrou que <strong>jogos clássicos são treinos para a mente</strong> muito antes de existirem "jogos educativos". Cada partida era uma lição:</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div style="padding: 10px; background: rgba(255,255,255,0.05); border-radius: 5px;">
+            <strong>♟️ Xadrez</strong>: "Pense 3 jogadas à frente na vida como no tabuleiro"
+        </div>
+        <div style="padding: 10px; background: rgba(255,255,255,0.05); border-radius: 5px;">
+            <strong>🔢 Sudoku</strong>: "Às vezes a resposta está no que NÃO está lá"
+        </div>
+        <div style="padding: 10px; background: rgba(255,255,255,0.05); border-radius: 5px;">
+            <strong>🃏 Baralho (21, Truco)</strong>: "Saber quando parar é tão importante quanto saber quando continuar"
+        </div>
+        <div style="padding: 10px; background: rgba(255,255,255,0.05); border-radius: 5px;">
+            <strong>✏️ Palavras Cruzadas</strong>: "O conhecimento se encaixa como peças de um puzzle"
+        </div>
+    </div>
+    
+    <p>Esses jogos me ensinaram que <strong>a diversão pode ser profunda</strong>, e que estratégia, paciência e pensamento lógico são habilidades para a vida, não apenas para vencer jogos.</p>
+</div>
+
+<!-- Nova Seção: Ideias de Jogos Educacionais (Futuros) -->
+<div class="fade-in" style="margin-top: 3rem;">
+    <h3 class="gaming-title">🎯 IDEIAS PARA FUTUROS JOGOS (INSPIRADOS EM CLÁSSICOS)</h3>
+    <p style="text-align: center; margin-bottom: 2rem; color: #aaa;">Jogos que quero criar baseados nos clássicos que aprendi com meu avô e livros de banca</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        <!-- Ideia 1 -->
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🔤</div>
+            <h4>Caça-Conceitos</h4>
+            <p><small>Inspiração: Caça-palavras de revista</small></p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Encontre conceitos filosóficos escondidos em grades de letras. Cada palavra encontrada revela uma explicação sobre o conceito.</p>
+            <div style="margin-top: 1rem; padding: 5px 10px; background: rgba(0,180,216,0.2); display: inline-block; font-size: 0.8rem;">
+                🕒 EM BREVE
+            </div>
+        </div>
+        
+        <!-- Ideia 2 -->
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🚫</div>
+            <h4>Encontre o Viés</h4>
+            <p><small>Inspiração: Jogo dos 7 erros</small></p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Compare duas afirmações quase idênticas e identifique os vieses cognitivos ou falácias lógicas escondidas nelas.</p>
+            <div style="margin-top: 1rem; padding: 5px 10px; background: rgba(233,69,96,0.2); display: inline-block; font-size: 0.8rem;">
+                💡 EM PLANEJAMENTO
+            </div>
+        </div>
+        
+        <!-- Ideia 3 -->
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🌀</div>
+            <h4>Labirinto Lógico</h4>
+            <p><small>Inspiração: Labirintos de revista</small></p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Navegue por um labirinto onde cada escolha de caminho representa uma premissa lógica diferente. Chegue à saída usando raciocínio dedutivo.</p>
+            <div style="margin-top: 1rem; padding: 5px 10px; background: rgba(157,78,221,0.2); display: inline-block; font-size: 0.8rem;">
+                🛠️ EM DESENVOLVIMENTO
+            </div>
+        </div>
+        
+        <!-- Ideia 4 -->
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">♠️♥️</div>
+            <h4>Baralho Filosófico</h4>
+            <p><small>Inspiração: Baralho comum (pif, tranca, 21)</small></p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Um baralho onde cada naipe representa uma escola filosófica e cada carta um conceito. Jogue "Truco Filosófico" ou "21 Conceitual".</p>
+            <div style="margin-top: 1rem; padding: 5px 10px; background: rgba(255,107,107,0.2); display: inline-block; font-size: 0.8rem;">
+                ✨ IDEAÇÃO
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mais ideias em lista -->
+    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 10px;">
+        <h4>📚 Outras inspirações de livros de banca que podemos transformar:</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div>
+                <strong>• Dominó Conceitual</strong><br>
+                <small>Conecte ideias como peças de dominó</small>
+            </div>
+            <div>
+                <strong>• Jogo da Forca Filosófica</strong><br>
+                <small>Adivinhe conceitos por letras</small>
+            </div>
+            <div>
+                <strong>• Ligue os Pontos</strong><br>
+                <small>Conecte pensadores a suas ideias</small>
+            </div>
+            <div>
+                <strong>• Detetive Lógico</strong><br>
+                <small>Resolva mistérios usando dedução</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; margin-top: 3rem;">
+    <a href="#" class="btn btn-gaming">VER TODOS OS JOGOS</a>
+    <p style="margin-top: 1rem; color: #aaa; font-size: 0.9rem;">Mais jogos em desenvolvimento! Sugestões? Entre em contato!</p>
+    <p style="margin-top: 0.5rem; color: #888; font-size: 0.8rem;">
+        <strong>💡 Uma verdade que aprendi jogando:</strong> "Xadrez não ensina apenas a ganhar; ensina a pensar antes de mover qualquer peça na vida."
+    </p>
+</div>
+        <section id="jogos" class="container">
+            <h2 class="arcade-title">MEUS JOGOS FILOSÓFICOS</h2>
+            
+            <div class="intro-text fade-in">
+                <p>Cada jogo que criei é uma lição disfarçada de diversão. Aqui, você não apenas aperfeiçoa reflexos, mas também exercita o pensamento crítico, a ética e a compreensão dos sistemas que governam nosso mundo.</p>
+                <p><strong>Jogar é aprender sem perceber que está aprendendo.</strong> Cada desafio, cada mecânica, cada vitória ensina algo sobre persistência, estratégia ou sobre você mesmo.</p>
+            </div>
+            
+            
+        
+        <!-- Filosofia Section -->
+        <section id="filosofia" class="philosophy-section">
+            <div class="container">
+                <h2 class="gaming-title">POR QUE JOGOS ENSINAM FILOSOFIA?</h2>
+                
+                <div class="philosophy-content fade-in">
+                    <p>Os jogos são os simuladores de realidade mais poderosos já criados. Eles nos permitem experimentar consequências, testar estratégias e viver realidades alternativas em ambientes seguros.</p>
+                    
+                    <div class="philo-points">
+                        <div class="philo-point">
+                            <h3>🎮 APRENDIZADO POR EXPERIÊNCIA</h3>
+                            <p>Filósofos gregos já sabiam: aprendemos melhor fazendo. Jogos transformam conceitos abstratos em experiências concretas.</p>
+                        </div>
+                        
+                        <div class="philo-point">
+                            <h3>🤔 PENSAMENTO SISTÊMICO</h3>
+                            <p>Cada jogo é um sistema com regras. Entender jogos ensina a analisar sistemas sociais, econômicos e políticos.</p>
+                        </div>
+                        
+                        <div class="philo-point">
+                            <h3>💭 ÉTICA PRÁTICA</h3>
+                            <p>Escolhas em jogos com consequências ensinam mais sobre ética do que mil discursos teóricos.</p>
+                        </div>
+                        
+                        <div class="philo-point">
+                            <h3>🔄 RESILIÊNCIA COGNITIVA</h3>
+                            <p>Falhar em um jogo e tentar de novo desenvolve persistência aplicável a qualquer desafio da vida.</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background-color: rgba(233, 69, 96, 0.1); border-left: 4px solid var(--accent);">
+                        <h3>🎯 A VERDADE SOBRE JOGOS:</h3>
+                        <p>"Um jogo bem projetado é uma pergunta disfarçada de diversão. Cada mecânica pergunta: 'E se?'. Cada vitória responde: 'É possível'. Cada derrota ensina: 'Existem outras formas'."</p>
+                        <p style="margin-top: 1rem; font-size: 0.9rem;">Esta é a essência dos Elliot Games: transformar curiosidade em compreensão através da interação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Desenvolvimento Section -->
+        <section id="desenvolvimento" class="container">
+            <h2>COMO SURGEM OS JOGOS FILOSÓFICOS</h2>
+            
+            <div class="intro-text fade-in">
+                <p>Criar um jogo filosófico é como construir uma máquina de perguntas. Cada elemento - mecânica, narrativa, arte - deve servir ao propósito de fazer o jogador pensar enquanto se diverte.</p>
+            </div>
+            
+            <div class="dev-stages fade-in">
+                <div class="dev-stage">
+                    <div class="stage-number">01</div>
+                    <div class="stage-content">
+                        <h3>IDEIA FILOSÓFICA</h3>
+                        <p>Tudo começa com um conceito filosófico que quero transmitir: ética, tempo, linguagem, poder. A pergunta é: como transformar isso em diversão?</p>
+                    </div>
+                </div>
+                
+                <div class="dev-stage">
+                    <div class="stage-number">02</div>
+                    <div class="stage-content">
+                        <h3>MECÂNICA LÚDICA</h3>
+                        <p>Encontro uma mecânica de jogo que represente metaforicamente o conceito. Dilemas éticos viram escolhas narrativas. Pensamento crítico vira puzzles.</p>
+                    </div>
+                </div>
+                
+                <div class="dev-stage">
+                    <div class="stage-number">03</div>
+                    <div class="stage-content">
+                        <h3>TESTE E REFINAMENTO</h3>
+                        <p>O jogo é testado para garantir que é divertido primeiro, educativo depois. A filosofia deve ser sentida, não explicada.</p>
+                    </div>
+                </div>
+                
+                <div class="dev-stage">
+                    <div class="stage-number">04</div>
+                    <div class="stage-content">
+                        <h3>INTEGRAÇÃO COM OUTRAS PÁGINAS</h3>
+                        <p>Cada jogo conecta com conteúdos das outras páginas Elliot. Um jogo sobre tempo liga à página Nexus. Um sobre ética liga à página principal.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3>🎨 QUER SUGERIR UM JOGO?</h3>
+                <p>Tem uma ideia de jogo que ensine algo importante? Conhece um conceito filosófico que daria um jogo incrível? Vamos conversar!</p>
+                <a href="#" class="btn btn-arcade" style="margin-top: 1rem;">ENVIAR IDEIA</a>
+            </div>
+        </section>
+        
+        <!-- Conexão com Elliot Kids -->
+        <section class="container">
+            <h2 class="arcade-title">🎮 PARA TODAS AS IDADES 🧒</h2>
+            
+            <div class="intro-text fade-in" style="background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(0,0,0,0.3) 100%); border-left-color: var(--arcade);">
+                <p>Os Elliot Games têm uma versão especial para mentes jovens e curiosas! Visite a <strong>Elliot Kids</strong> para jogos e histórias que introduzem conceitos filosóficos de forma apropriada para cada idade.</p>
+                
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <h4 style="color: var(--arcade);">🧒 Elliot Kids Inclui:</h4>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Jogos sobre emoções e empatia</li>
+                            <li>Histórias com lições éticas</li>
+                            <li>Atividades de pensamento crítico</li>
+                            <li>Conteúdo seguro e educativo</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 200px; text-align: center;">
+                        <a href="criancas.html" class="btn" style="font-size: 1rem; padding: 15px 30px;">VISITAR ELLIOT KIDS</a>
+                        <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">Idade recomendada: 6-12 anos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">ELLIOT GAMES</h3>
+            <p>Filosofia através da interação, ética através da experiência</p>
+            <ul class="footer-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="nexus.html">Nexus</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="criancas.html">Elliot Kids</a></li>
+                <li><a href="#filosofia">Filosofia dos Jogos</a></li>
+                <li><a href="#desenvolvimento">Desenvolvimento</a></li>
+            </ul>
+            <div class="copyright">
+                <p>© 2023 Elliot Games. Jogos filosóficos para mentes curiosas.</p>
+                <p class="disclaimer">Todos os jogos são desenvolvidos com propósito educativo. A diversão é o meio, o aprendizado é o fim.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                this.innerHTML = navLinks.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : 
+                    '<i class="fas fa-bars"></i>';
+            });
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 992) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only handle anchor links (starting with #)
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    
+                    const targetId = href;
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Fade-in animation on scroll
+        function checkFadeIn() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initial check
+        checkFadeIn();
+
+        // Check on scroll
+        window.addEventListener('scroll', checkFadeIn);
+
+        // Game card interaction
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Play button effects
+        document.querySelectorAll('.play-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    this.style.backgroundColor = 'transparent';
+                    this.style.color = 'var(--accent)';
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                        this.style.color = '';
+                        alert("🎮 Este jogo está em desenvolvimento! Em breve disponível para jogar!");
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
